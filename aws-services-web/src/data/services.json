@@ -1,0 +1,655 @@
+{
+  "categories": [
+    {
+      "id": "overview",
+      "name": "Tổng quan",
+      "description": "Các khái niệm cơ bản về AWS",
+      "services": [
+        {
+          "name": "Infrastructure as a Service (IaaS)",
+          "type": "IaaS",
+          "purpose": "Cung cấp hạ tầng máy tính như máy chủ ảo, lưu trữ, mạng",
+          "useCase": "Kiểm soát hoàn toàn hạ tầng, tự quản lý OS và ứng dụng",
+          "features": "EC2, EBS, VPC"
+        },
+        {
+          "name": "Platform as a Service (PaaS)",
+          "type": "PaaS",
+          "purpose": "Cung cấp nền tảng để phát triển và triển khai ứng dụng",
+          "useCase": "Tập trung vào code, không lo quản lý hạ tầng",
+          "features": "Elastic Beanstalk, Lambda"
+        },
+        {
+          "name": "Software as a Service (SaaS)",
+          "type": "SaaS",
+          "purpose": "Cung cấp phần mềm hoàn chỉnh qua internet",
+          "useCase": "Sử dụng ứng dụng mà không cần cài đặt",
+          "features": "QuickSight, WorkSpaces"
+        },
+        {
+          "name": "AWS Well-Architected Framework (WAF)",
+          "type": "Framework",
+          "purpose": "Khung đánh giá và cải thiện kiến trúc cloud",
+          "useCase": "Đảm bảo kiến trúc tuân thủ best practices",
+          "features": "5 trụ cột: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization"
+        }
+      ]
+    },
+    {
+      "id": "data-transfer",
+      "name": "Chuyển dữ liệu",
+      "description": "Các dịch vụ chuyển và di chuyển dữ liệu",
+      "services": [
+        {
+          "name": "DataSync",
+          "type": "Data Transfer",
+          "purpose": "Di chuyển dữ liệu tốc độ cao giữa on-prem ↔ AWS hoặc AWS ↔ AWS",
+          "useCase": "Copy dữ liệu tự động, nhanh gấp 10x so với tools truyền thống",
+          "features": "Tự động sync, incremental transfer, encryption, validation"
+        },
+        {
+          "name": "Transfer Family",
+          "type": "File Transfer",
+          "purpose": "SFTP/FTP/FTPS managed để upload dữ liệu vào AWS",
+          "useCase": "Nhận hoặc gửi file qua SFTP/FTP trực tiếp vào S3 hoặc EFS",
+          "features": "SFTP, FTPS, FTP, tích hợp với S3/EFS, authentication"
+        },
+        {
+          "name": "Storage Gateway",
+          "type": "Hybrid Storage",
+          "purpose": "Tích hợp hệ thống on-prem với storage AWS",
+          "useCase": "Kết nối on-prem với S3/EFS thông qua file/tape/volume gateway",
+          "features": "File Gateway, Tape Gateway, Volume Gateway, hybrid cloud storage"
+        },
+        {
+          "name": "Snow Family",
+          "type": "Data Migration",
+          "purpose": "Chuyển lượng dữ liệu rất lớn (TB → PB) offline",
+          "useCase": "Thiết bị vật lý để chuyển dữ liệu offline lên AWS",
+          "features": "Snowcone, Snowball, Snowmobile, offline data transfer, encryption"
+        }
+      ]
+    },
+    {
+      "id": "storage",
+      "name": "Lưu trữ",
+      "description": "Các dịch vụ lưu trữ dữ liệu trên AWS",
+      "services": [
+        {
+          "name": "S3 Standard",
+          "type": "Object Storage",
+          "purpose": "Lưu trữ dữ liệu truy cập thường xuyên",
+          "useCase": "Hosting website, phân phối nội dung, phân tích dữ liệu",
+          "features": "Độ bền cao, đa vùng, truy xuất mili-giây, giá cao nhất"
+        },
+        {
+          "name": "S3 Standard-IA",
+          "type": "Object Storage",
+          "purpose": "Dữ liệu ít truy cập nhưng cần truy xuất nhanh",
+          "useCase": "Sao lưu, phục hồi thảm họa, lưu trữ dài hạn",
+          "features": "Đa vùng, có phí truy xuất, tốc độ mili-giây, rẻ hơn Standard"
+        },
+        {
+          "name": "S3 One Zone-IA",
+          "type": "Object Storage",
+          "purpose": "Dữ liệu ít truy cập, chấp nhận lưu trữ trong một vùng",
+          "useCase": "Sao lưu phụ, dữ liệu có thể tái tạo",
+          "features": "1 vùng, không đa vùng, rẻ hơn Standard-IA"
+        },
+        {
+          "name": "S3 Intelligent-Tiering",
+          "type": "Object Storage",
+          "purpose": "Tự động tối ưu chi phí khi không biết tần suất truy cập",
+          "useCase": "Dữ liệu có pattern truy cập không dự đoán được",
+          "features": "Tự động chuyển tier, tốc độ mili-giây, tối ưu chi phí tự động"
+        },
+        {
+          "name": "Glacier Instant Retrieval",
+          "type": "Archive Storage",
+          "purpose": "Lưu trữ lâu dài nhưng cần truy cập nhanh",
+          "useCase": "Ảnh y tế, tài sản truyền thông, nội dung người dùng",
+          "features": "Truy xuất mili-giây, rẻ hơn IA"
+        },
+        {
+          "name": "Glacier Flexible Retrieval",
+          "type": "Archive Storage",
+          "purpose": "Lưu trữ rất lâu, truy cập không thường xuyên",
+          "useCase": "Sao lưu, lưu trữ, tuân thủ quy định",
+          "features": "Truy xuất 1-12 phút, giá rất rẻ"
+        },
+        {
+          "name": "Glacier Deep Archive",
+          "type": "Archive Storage",
+          "purpose": "Lưu trữ lâu dài nhất (như lưu kho)",
+          "useCase": "Lưu trữ dài hạn, tuân thủ, bảo tồn số",
+          "features": "Truy xuất 12-48 giờ, giá rẻ nhất trong S3"
+        },
+        {
+          "name": "EBS (Elastic Block Store)",
+          "type": "Block Storage",
+          "purpose": "Lưu trữ block-level cho EC2 instances",
+          "useCase": "Cơ sở dữ liệu, hệ thống file, boot volumes",
+          "features": "Gắn với EC2, mở rộng đến 16TB, hiệu suất cao, nhiều loại (gp3, io1, io2)"
+        },
+        {
+          "name": "EFS (Elastic File System)",
+          "type": "File Storage",
+          "purpose": "Hệ thống file được quản lý, có thể chia sẻ",
+          "useCase": "Quản lý nội dung, phục vụ web, chia sẻ dữ liệu",
+          "features": "NFS v4, tự động mở rộng, đa vùng, trả theo sử dụng"
+        },
+        {
+          "name": "FSx for Windows File Server",
+          "type": "File Storage",
+          "purpose": "Hệ thống file Windows Server native",
+          "useCase": "Ứng dụng Windows, thư mục home người dùng",
+          "features": "Giao thức SMB, tích hợp Active Directory, sao lưu tích hợp"
+        },
+        {
+          "name": "FSx for Lustre",
+          "type": "File Storage",
+          "purpose": "Hệ thống file hiệu suất cao cho workload tính toán",
+          "useCase": "Machine learning, tính toán hiệu suất cao, xử lý media",
+          "features": "Độ trễ dưới mili-giây, throughput hàng trăm GB/s"
+        }
+      ]
+    },
+    {
+      "id": "compute",
+      "name": "Compute",
+      "description": "Các dịch vụ tính toán và xử lý",
+      "services": [
+        {
+          "name": "EC2 (Elastic Compute Cloud)",
+          "type": "IaaS",
+          "purpose": "Máy chủ ảo tùy chỉnh trên cloud",
+          "useCase": "Web servers, ứng dụng, cơ sở dữ liệu, mọi workload",
+          "features": "Nhiều loại instance, tự động scale, spot instances, reserved instances"
+        },
+        {
+          "name": "Lambda",
+          "type": "Serverless",
+          "purpose": "Chạy code mà không cần quản lý servers",
+          "useCase": "Ứng dụng event-driven, API backends, xử lý dữ liệu",
+          "features": "Trả theo request, tự động scale, hỗ trợ nhiều ngôn ngữ"
+        },
+        {
+          "name": "SQS (Simple Queue Service)",
+          "type": "Message Queue",
+          "purpose": "Hàng đợi message chống overload",
+          "useCase": "Tách microservices, queue processing, retry, DLQ",
+          "features": "FIFO queue, standard queue, dead letter queue, long polling"
+        },
+        {
+          "name": "SNS (Simple Notification Service)",
+          "type": "Pub/Sub Messaging",
+          "purpose": "Pub/sub, broadcast message",
+          "useCase": "Gửi thông báo tới nhiều subscriber, fan-out pattern",
+          "features": "Topics, subscriptions, tích hợp Lambda, SQS, email, SMS"
+        },
+        {
+          "name": "EventBridge",
+          "type": "Event Bus",
+          "purpose": "Event bus thông minh, rule-based",
+          "useCase": "Orchestrate events từ AWS services, SaaS, custom apps",
+          "features": "Rule-based routing, nhiều nguồn event, serverless event bus"
+        },
+        {
+          "name": "Step Functions",
+          "type": "Workflow Orchestration",
+          "purpose": "Orchestrate workflow phức tạp và quản lý state",
+          "useCase": "Xây dựng pipeline, workflow nghiệp vụ, automation",
+          "features": "State machine, visual workflow, error handling, retry logic"
+        },
+        {
+          "name": "Elastic Beanstalk",
+          "type": "PaaS",
+          "purpose": "Triển khai ứng dụng không cần lo hạ tầng",
+          "useCase": "Ứng dụng web, APIs, triển khai nhanh",
+          "features": "Tự động scale, cân bằng tải, giám sát, hỗ trợ nhiều nền tảng"
+        }
+      ]
+    },
+    {
+      "id": "container",
+      "name": "Container",
+      "description": "Các dịch vụ container và orchestration",
+      "services": [
+        {
+          "name": "ECS (Elastic Container Service)",
+          "type": "Container Orchestration",
+          "purpose": "Docker orchestrator của AWS",
+          "useCase": "Microservices, ứng dụng containerized",
+          "features": "Quản lý hoàn toàn, tích hợp ALB, hỗ trợ Fargate và EC2"
+        },
+        {
+          "name": "EKS (Elastic Kubernetes Service)",
+          "type": "Container Orchestration",
+          "purpose": "Dịch vụ Kubernetes được quản lý",
+          "useCase": "Workload Kubernetes, orchestration container phức tạp",
+          "features": "Kubernetes native, tự động patching, tích hợp AWS services"
+        },
+        {
+          "name": "Fargate",
+          "type": "Serverless Container",
+          "purpose": "Chạy container không cần EC2",
+          "useCase": "Workload container không muốn quản lý servers",
+          "features": "Serverless, trả theo sử dụng, tự động scale"
+        }
+      ]
+    },
+    {
+      "id": "batch",
+      "name": "Xử lý hàng loạt",
+      "description": "Các dịch vụ xử lý batch và workload lớn",
+      "services": [
+        {
+          "name": "AWS Batch",
+          "type": "Batch Processing",
+          "purpose": "Xử lý hàng loạt quy mô lớn",
+          "useCase": "Tính toán khoa học, xử lý dữ liệu, công việc ETL",
+          "features": "Tự động scale, tối ưu phân bổ tài nguyên, tích hợp EC2 và Fargate"
+        }
+      ]
+    },
+    {
+      "id": "database",
+      "name": "Cơ sở dữ liệu",
+      "description": "Các dịch vụ database và data warehouse",
+      "services": [
+        {
+          "name": "RDS (Relational Database Service)",
+          "type": "Relational Database",
+          "purpose": "Dịch vụ cơ sở dữ liệu quan hệ được quản lý",
+          "useCase": "Ứng dụng OLTP, cơ sở dữ liệu truyền thống",
+          "features": "Hỗ trợ MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, tự động sao lưu, đa vùng"
+        },
+        {
+          "name": "Aurora",
+          "type": "Relational Database",
+          "purpose": "Cơ sở dữ liệu quan hệ hiệu suất cao",
+          "useCase": "Ứng dụng doanh nghiệp, yêu cầu tính sẵn sàng cao",
+          "features": "Tương thích MySQL/PostgreSQL, tự động scale, 15 read replicas, sao lưu liên tục"
+        },
+        {
+          "name": "RDS Proxy",
+          "type": "Connection Proxy",
+          "purpose": "Quản lý connection pool cho RDS",
+          "useCase": "App nhiều kết nối DB, tránh quá tải database",
+          "features": "Quản lý connection pool, giảm load lên DB, failover nhanh"
+        },
+        {
+          "name": "DynamoDB",
+          "type": "NoSQL Database",
+          "purpose": "Cơ sở dữ liệu NoSQL được quản lý hoàn toàn",
+          "useCase": "Ứng dụng mobile, gaming, IoT, ứng dụng real-time",
+          "features": "Serverless, độ trễ mili-giây, tự động scale, global tables"
+        },
+        {
+          "name": "ElastiCache",
+          "type": "In-Memory Cache",
+          "purpose": "Dịch vụ caching in-memory",
+          "useCase": "Caching, lưu trữ session, phân tích real-time",
+          "features": "Redis và Memcached, độ trễ dưới mili-giây, tính sẵn sàng cao"
+        },
+        {
+          "name": "DocumentDB",
+          "type": "Document Database",
+          "purpose": "Cơ sở dữ liệu document tương thích MongoDB",
+          "useCase": "Quản lý nội dung, catalog, hồ sơ người dùng",
+          "features": "Tương thích MongoDB, sao lưu tự động, đa vùng"
+        },
+        {
+          "name": "Neptune",
+          "type": "Graph Database",
+          "purpose": "Cơ sở dữ liệu graph được quản lý hoàn toàn",
+          "useCase": "Mạng xã hội, engine đề xuất, phát hiện gian lận",
+          "features": "Gremlin và SPARQL, giao dịch ACID, tính sẵn sàng cao"
+        },
+        {
+          "name": "Keyspaces",
+          "type": "Wide-Column Database",
+          "purpose": "Cơ sở dữ liệu tương thích Apache Cassandra",
+          "useCase": "Ứng dụng quy mô lớn, dữ liệu time-series",
+          "features": "Tương thích Cassandra, serverless, tự động scale"
+        },
+        {
+          "name": "QLDB (Quantum Ledger Database)",
+          "type": "Ledger Database",
+          "purpose": "Cơ sở dữ liệu ledger được quản lý hoàn toàn",
+          "useCase": "Hồ sơ tài chính, chuỗi cung ứng, hệ thống đăng ký",
+          "features": "Bất biến, có thể xác minh mã hóa, giao dịch ACID"
+        },
+        {
+          "name": "Redshift",
+          "type": "Data Warehouse",
+          "purpose": "Data warehouse được quản lý hoàn toàn",
+          "useCase": "Business intelligence, phân tích, data warehousing",
+          "features": "Lưu trữ cột, xử lý song song, quy mô petabyte"
+        },
+        {
+          "name": "EMR (Elastic MapReduce)",
+          "type": "Big Data Processing",
+          "purpose": "Nền tảng xử lý big data",
+          "useCase": "Xử lý dữ liệu, machine learning, lập chỉ mục web",
+          "features": "Hadoop, Spark, HBase, Presto, tự động scale"
+        },
+        {
+          "name": "QuickSight",
+          "type": "Business Intelligence",
+          "purpose": "Dịch vụ BI cloud-native",
+          "useCase": "Trực quan hóa dữ liệu, dashboards, báo cáo",
+          "features": "Serverless, trả theo session, insights ML, analytics nhúng"
+        },
+        {
+          "name": "Glue",
+          "type": "ETL Service",
+          "purpose": "Dịch vụ Extract, Transform, Load",
+          "useCase": "Chuẩn bị dữ liệu, công việc ETL, catalog dữ liệu",
+          "features": "ETL serverless, tự động phát hiện schema, catalog dữ liệu"
+        },
+        {
+          "name": "Athena",
+          "type": "Query Service",
+          "purpose": "Dịch vụ query tương tác cho dữ liệu S3",
+          "useCase": "Query ad-hoc, phân tích log, khám phá dữ liệu",
+          "features": "Serverless, query SQL trên S3, trả theo query"
+        },
+        {
+          "name": "Lake Formation",
+          "type": "Data Lake Management",
+          "purpose": "Quản lý và bảo mật data lakes",
+          "useCase": "Quản trị dữ liệu tập trung, thiết lập data lake",
+          "features": "Thiết lập tự động, kiểm soát truy cập chi tiết, catalog dữ liệu"
+        }
+      ]
+    },
+    {
+      "id": "networking",
+      "name": "Networking",
+      "description": "Các dịch vụ mạng và routing",
+      "services": [
+        {
+          "name": "Route 53 - Simple Routing",
+          "type": "DNS",
+          "purpose": "Routing policy đơn giản, trả về một giá trị",
+          "useCase": "Một resource, không cần routing phức tạp",
+          "features": "Một record cho một domain, health checks"
+        },
+        {
+          "name": "Route 53 - Weighted Routing",
+          "type": "DNS",
+          "purpose": "Phân phối traffic theo trọng số",
+          "useCase": "A/B testing, di chuyển dần, cân bằng tải",
+          "features": "Định trọng số cho mỗi record, phân phối theo tỷ lệ"
+        },
+        {
+          "name": "Route 53 - Latency Routing",
+          "type": "DNS",
+          "purpose": "Route đến resource có độ trễ thấp nhất",
+          "useCase": "Ứng dụng toàn cầu, tối ưu hiệu suất",
+          "features": "Tự động route dựa trên độ trễ, health checks"
+        },
+        {
+          "name": "Route 53 - Failover Routing",
+          "type": "DNS",
+          "purpose": "Failover chủ động-bị động",
+          "useCase": "Phục hồi thảm họa, tính sẵn sàng cao",
+          "features": "Primary và secondary records, health checks tự động"
+        },
+        {
+          "name": "Route 53 - Geolocation Routing",
+          "type": "DNS",
+          "purpose": "Route dựa trên vị trí địa lý của người dùng",
+          "useCase": "Bản địa hóa nội dung, yêu cầu tuân thủ",
+          "features": "Route theo quốc gia/lục địa, record mặc định"
+        },
+        {
+          "name": "Route 53 - Geoproximity Routing",
+          "type": "DNS",
+          "purpose": "Route dựa trên vị trí địa lý và bias",
+          "useCase": "Route traffic đến resources gần nhất với bias",
+          "features": "Kết hợp geolocation và bias, tối ưu route traffic"
+        },
+        {
+          "name": "Route 53 - Multivalue Answer Routing",
+          "type": "DNS",
+          "purpose": "Trả về nhiều healthy records ngẫu nhiên",
+          "useCase": "Cân bằng tải đơn giản, tính sẵn sàng cao",
+          "features": "Trả về tối đa 8 healthy records, health checks"
+        },
+        {
+          "name": "Route 53 - IP-based Routing",
+          "type": "DNS",
+          "purpose": "Route dựa trên địa chỉ IP của người dùng",
+          "useCase": "Route traffic đến endpoints cụ thể dựa trên IP",
+          "features": "CIDR blocks, routing địa lý"
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "name": "Bảo mật",
+      "description": "Các dịch vụ bảo mật và mã hóa",
+      "services": [
+        {
+          "name": "KMS (Key Management Service)",
+          "type": "Encryption",
+          "purpose": "Quản lý khóa mã hóa dữ liệu",
+          "useCase": "Mã hóa dữ liệu, quản lý encryption keys",
+          "features": "Quản lý khóa tập trung, tích hợp AWS services, audit logging"
+        },
+        {
+          "name": "Secrets Manager",
+          "type": "Secrets Management",
+          "purpose": "Quản lý và bảo vệ secrets, credentials",
+          "useCase": "Lưu trữ mật khẩu, API keys, database credentials",
+          "features": "Tự động rotation, mã hóa, tích hợp với RDS và Lambda"
+        },
+        {
+          "name": "Artifact",
+          "type": "Compliance",
+          "purpose": "Tải xuống tài liệu tuân thủ và báo cáo",
+          "useCase": "Tuân thủ quy định, audit, báo cáo bảo mật",
+          "features": "Báo cáo tuân thủ, hợp đồng, chứng chỉ bảo mật"
+        },
+        {
+          "name": "Inspector",
+          "type": "Security Assessment",
+          "purpose": "Tự động scan lỗ hổng bảo mật",
+          "useCase": "Phát hiện CVE, misconfiguration, security vulnerabilities",
+          "features": "Tự động phát hiện lỗ hổng, báo cáo chi tiết, tích hợp với Security Hub"
+        },
+        {
+          "name": "GuardDuty",
+          "type": "Threat Detection",
+          "purpose": "Phát hiện hành vi đáng ngờ và threats",
+          "useCase": "Threat detection dựa trên logs, phát hiện tấn công",
+          "features": "Phân tích VPC, CloudTrail, DNS logs, machine learning-based detection"
+        },
+        {
+          "name": "Macie",
+          "type": "Data Security",
+          "purpose": "Bảo vệ dữ liệu nhạy cảm trong S3",
+          "useCase": "Tìm PII, dữ liệu nhạy cảm, phân loại dữ liệu",
+          "features": "Tự động phát hiện dữ liệu nhạy cảm, classification, alerting"
+        },
+        {
+          "name": "Security Hub",
+          "type": "Security Management",
+          "purpose": "Tổng hợp cảnh báo bảo mật từ nhiều dịch vụ",
+          "useCase": "Dashboard tổng hợp, centralized security findings",
+          "features": "Tích hợp GuardDuty, Macie, Inspector, compliance checks"
+        },
+        {
+          "name": "WAF (Web Application Firewall)",
+          "type": "Web Security",
+          "purpose": "Bảo vệ web/app khỏi tấn công OWASP",
+          "useCase": "Chống SQL injection, XSS, DDoS, bot protection",
+          "features": "Web firewall rules, rate limiting, geo-blocking, tích hợp ALB/CloudFront"
+        },
+        {
+          "name": "Shield",
+          "type": "DDoS Protection",
+          "purpose": "Chống DDoS attacks",
+          "useCase": "Bảo vệ L3/L4 DDoS, always-on protection",
+          "features": "Shield Standard (free), Shield Advanced (paid), DDoS mitigation"
+        }
+      ]
+    },
+    {
+      "id": "deployment",
+      "name": "Triển khai",
+      "description": "Các dịch vụ triển khai và CI/CD",
+      "services": [
+        {
+          "name": "Elastic Beanstalk",
+          "type": "PaaS",
+          "purpose": "Triển khai ứng dụng không cần lo hạ tầng",
+          "useCase": "Ứng dụng web, APIs, triển khai nhanh",
+          "features": "Tự động scale, cân bằng tải, giám sát, hỗ trợ nhiều nền tảng"
+        }
+      ]
+    },
+    {
+      "id": "ai-ml",
+      "name": "AI & Machine Learning",
+      "description": "Các dịch vụ AI và Machine Learning",
+      "services": [
+        {
+          "name": "SageMaker",
+          "type": "Machine Learning",
+          "purpose": "Nền tảng machine learning được quản lý hoàn toàn",
+          "useCase": "Xây dựng, training, deploy models ML",
+          "features": "Jupyter notebooks, built-in algorithms, tự động tuning, model hosting"
+        },
+        {
+          "name": "Personalize",
+          "type": "Machine Learning",
+          "purpose": "Dịch vụ đề xuất cá nhân hóa real-time",
+          "useCase": "Đề xuất sản phẩm, nội dung cá nhân hóa",
+          "features": "Real-time recommendations, tự động training, không cần ML expertise"
+        },
+        {
+          "name": "Comprehend",
+          "type": "Natural Language Processing",
+          "purpose": "Phân tích ngôn ngữ tự nhiên và text",
+          "useCase": "Phân tích cảm xúc, nhận dạng thực thể, phân loại văn bản",
+          "features": "Sentiment analysis, entity recognition, key phrase extraction, language detection"
+        },
+        {
+          "name": "Rekognition",
+          "type": "Computer Vision",
+          "purpose": "Phân tích hình ảnh và video bằng AI",
+          "useCase": "Nhận dạng khuôn mặt, nhận dạng đối tượng, phân tích nội dung, so sánh khuôn mặt",
+          "features": "Face detection, object detection, text detection, celebrity recognition, content moderation"
+        },
+        {
+          "name": "Kinesis",
+          "type": "Streaming Data Platform",
+          "purpose": "Nền tảng streaming dữ liệu real-time",
+          "useCase": "Ingest dữ liệu real-time, log streaming, IoT, clickstream",
+          "features": "Real-time analytics, Kinesis Data Streams, Firehose, Analytics, Video Streams"
+        },
+        {
+          "name": "MSK (Managed Streaming for Kafka)",
+          "type": "Managed Apache Kafka",
+          "purpose": "Dịch vụ Apache Kafka được quản lý",
+          "useCase": "Event streaming mạnh, pub/sub, event-driven architecture",
+          "features": "Kafka managed, tự động scale, high availability, encryption"
+        }
+      ]
+    },
+    {
+      "id": "management",
+      "name": "Quản lý",
+      "description": "Các dịch vụ quản lý và giám sát",
+      "services": [
+        {
+          "name": "Trusted Advisor",
+          "type": "Management",
+          "purpose": "Tư vấn tối ưu hóa và best practices cho tài khoản AWS",
+          "useCase": "Tối ưu chi phí, bảo mật, hiệu suất, độ tin cậy",
+          "features": "5 categories: Cost Optimization, Security, Fault Tolerance, Performance, Service Limits"
+        },
+        {
+          "name": "Organizations",
+          "type": "Account Management",
+          "purpose": "Quản lý nhiều tài khoản AWS",
+          "useCase": "Tập trung quản trị account, policy, billing",
+          "features": "Multi-account management, SCPs, consolidated billing, organizational units"
+        },
+        {
+          "name": "Control Tower",
+          "type": "Multi-Account Governance",
+          "purpose": "Deploy multi-account AWS environment theo best practice",
+          "useCase": "Tự động tạo account, guardrails, landing zone",
+          "features": "Landing zone, guardrails, account factory, centralized governance"
+        },
+        {
+          "name": "CloudFormation",
+          "type": "Infrastructure as Code",
+          "purpose": "Tạo hạ tầng bằng code (IaC)",
+          "useCase": "Triển khai tài nguyên AWS bằng YAML/JSON",
+          "features": "Templates, stacks, drift detection, rollback, nested stacks"
+        },
+        {
+          "name": "Service Catalog",
+          "type": "Service Management",
+          "purpose": "Quản lý danh sách approved services",
+          "useCase": "Cho phép user deploy các template chuẩn",
+          "features": "Product portfolios, constraints, versioning, access control"
+        },
+        {
+          "name": "Systems Manager (SSM)",
+          "type": "Operations Management",
+          "purpose": "Quản lý server/VM ở AWS và on-prem",
+          "useCase": "Tập trung patching, run command, automation",
+          "features": "Patch Manager, Run Command, Parameter Store, Inventory, Automation"
+        },
+        {
+          "name": "Config",
+          "type": "Configuration Management",
+          "purpose": "Theo dõi thay đổi tài nguyên",
+          "useCase": "Audit, compliance, drift detection",
+          "features": "Configuration history, compliance rules, conformance packs, drift detection"
+        },
+        {
+          "name": "CloudTrail",
+          "type": "Audit & Logging",
+          "purpose": "Theo dõi ai đã làm gì trong AWS",
+          "useCase": "Log API calls, auditing, security analysis",
+          "features": "API call logging, event history, trail logs, integration với CloudWatch"
+        },
+        {
+          "name": "CloudWatch",
+          "type": "Monitoring & Observability",
+          "purpose": "Theo dõi tài nguyên và ứng dụng",
+          "useCase": "Metrics, Logs, Alarms, monitoring",
+          "features": "CloudWatch Metrics, Logs, Alarms, Dashboards, Insights, Synthetics"
+        },
+        {
+          "name": "Budgets",
+          "type": "Cost Management",
+          "purpose": "Giới hạn chi phí",
+          "useCase": "Tạo budget và cảnh báo vượt ngưỡng",
+          "features": "Cost budgets, usage budgets, forecast budgets, alerts"
+        },
+        {
+          "name": "Cost Explorer",
+          "type": "Cost Analytics",
+          "purpose": "Theo dõi và phân tích chi phí",
+          "useCase": "Visualize cost và usage, cost optimization",
+          "features": "Cost visualization, cost reports, RI recommendations, savings plans"
+        },
+        {
+          "name": "Cost and Usage Reports (CUR)",
+          "type": "Cost Reporting",
+          "purpose": "Dữ liệu billing chi tiết nhất (raw data)",
+          "useCase": "Export cost raw → S3 → phân tích bằng Athena/Redshift",
+          "features": "Detailed billing data, hourly/daily reports, export to S3"
+        }
+      ]
+    }
+  ]
+}
