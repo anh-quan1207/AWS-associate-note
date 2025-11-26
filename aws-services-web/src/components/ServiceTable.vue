@@ -126,37 +126,30 @@ const getSortIcon = (field) => {
   return sortDirection.value === 'asc' ? '↑' : '↓'
 }
 
+const typeGroups = {
+  'type-iaas': ['IaaS'],
+  'type-paas': ['PaaS'],
+  'type-saas': ['SaaS'],
+  'type-serverless': ['Serverless', 'Message Queue', 'Pub/Sub Messaging', 'Event Bus', 'Workflow Orchestration'],
+  'type-storage': ['Object Storage', 'Block Storage', 'File Storage', 'Archive Storage', 'Hybrid Storage', 'Data Transfer', 'File Transfer', 'Data Migration', 'Edge Computing'],
+  'type-networking': ['DNS', 'Networking', 'Load Balancing', 'Streaming Data Platform', 'Managed Apache Kafka'],
+  'type-container': ['Container Orchestration', 'Serverless Container'],
+  'type-database': ['Relational Database', 'NoSQL Database', 'Document Database', 'Graph Database', 'Wide-Column Database', 'Ledger Database', 'Data Warehouse', 'In-Memory Cache', 'Business Intelligence', 'ETL Service', 'Query Service', 'Data Lake Management', 'Big Data Processing', 'Connection Proxy'],
+  'type-batch': ['Batch Processing'],
+  'type-security': ['Encryption', 'Secrets Management', 'Threat Detection', 'Security Assessment', 'Security Management', 'Compliance', 'Data Security', 'DDoS Protection', 'Web Security', 'Identity', 'Identity Federation'],
+  'type-framework': ['Framework'],
+  'type-devtools': ['Developer Tooling', 'Infrastructure as Code'],
+  'type-ml': ['Machine Learning', 'AI Service', 'Computer Vision', 'Natural Language Processing', 'Contact Center'],
+  'type-support': ['Learning Resource', 'Support Plan', 'Management', 'Service Management', 'Operations Management', 'Monitoring & Observability', 'Observability', 'Audit & Logging', 'Configuration Management', 'Account Management', 'Multi-Account Governance', 'Cost Management', 'Cost Analytics', 'Cost Reporting', 'Resilience Testing']
+}
+
 const getTypeClass = (type) => {
-  const typeMap = {
-    'IaaS': 'type-iaas',
-    'PaaS': 'type-paas',
-    'SaaS': 'type-saas',
-    'Serverless': 'type-serverless',
-    'Object Storage': 'type-storage',
-    'Block Storage': 'type-storage',
-    'File Storage': 'type-storage',
-    'Archive Storage': 'type-storage',
-    'DNS': 'type-networking',
-    'Container Orchestration': 'type-container',
-    'Serverless Container': 'type-container',
-    'Relational Database': 'type-database',
-    'NoSQL Database': 'type-database',
-    'Document Database': 'type-database',
-    'Graph Database': 'type-database',
-    'Wide-Column Database': 'type-database',
-    'Ledger Database': 'type-database',
-    'Data Warehouse': 'type-database',
-    'In-Memory Cache': 'type-database',
-    'Big Data Processing': 'type-database',
-    'Business Intelligence': 'type-database',
-    'ETL Service': 'type-database',
-    'Query Service': 'type-database',
-    'Data Lake Management': 'type-database',
-    'Batch Processing': 'type-batch',
-    'Encryption': 'type-security',
-    'Framework': 'type-framework'
+  for (const [className, mappedTypes] of Object.entries(typeGroups)) {
+    if (mappedTypes.includes(type)) {
+      return className
+    }
   }
-  return typeMap[type] || 'type-default'
+  return 'type-default'
 }
 </script>
 
@@ -335,6 +328,18 @@ const getTypeClass = (type) => {
 .type-framework {
   background-color: #d1c4e9;
   color: #512da8;
+}
+.type-devtools {
+  background-color: #d7ffeb;
+  color: #00695c;
+}
+.type-ml {
+  background-color: #fce4ec;
+  color: #c2185b;
+}
+.type-support {
+  background-color: #ede7f6;
+  color: #5e35b1;
 }
 
 .type-default {

@@ -67,6 +67,20 @@
           "purpose": "Chuyển lượng dữ liệu rất lớn (TB → PB) offline",
           "useCase": "Thiết bị vật lý để chuyển dữ liệu offline lên AWS",
           "features": "Snowcone, Snowball, Snowmobile, offline data transfer, encryption"
+        },
+        {
+          "name": "AWS Snowball",
+          "type": "Data Transfer",
+          "purpose": "Thiết bị vật lý dùng để di chuyển dữ liệu ở quy mô TB-PB lên AWS",
+          "useCase": "Di chuyển dữ liệu lớn khi băng thông internet hạn chế hoặc cần di chuyển bảo mật",
+          "features": "Thiết bị rugged 50/80TB, mã hóa 256-bit, quản lý bằng Snow console, theo dõi Chain of Custody"
+        },
+        {
+          "name": "AWS Snowball Edge",
+          "type": "Edge Computing",
+          "purpose": "Thiết bị Snowball tích hợp compute/storage để xử lý dữ liệu tại edge rồi chuyển lên AWS",
+          "useCase": "Thu thập và xử lý dữ liệu tại địa điểm xa xôi hoặc môi trường bị ngắt kết nối",
+          "features": "Hai phiên bản Storage/Compute Optimized, hỗ trợ EC2/Lambda@Edge, 80TB+, GPU option"
         }
       ]
     },
@@ -207,6 +221,13 @@
           "purpose": "Triển khai ứng dụng không cần lo hạ tầng",
           "useCase": "Ứng dụng web, APIs, triển khai nhanh",
           "features": "Tự động scale, cân bằng tải, giám sát, hỗ trợ nhiều nền tảng"
+        },
+        {
+          "name": "Amazon Lightsail",
+          "type": "PaaS",
+          "purpose": "Cung cấp VPS, database và container package đơn giản",
+          "useCase": "Chạy website nhỏ, blog, ứng dụng thử nghiệm với chi phí cố định",
+          "features": "Blueprints phổ biến, pricing đơn giản, tích hợp DNS và snapshots"
         }
       ]
     },
@@ -424,6 +445,34 @@
           "purpose": "Route dựa trên địa chỉ IP của người dùng",
           "useCase": "Route traffic đến endpoints cụ thể dựa trên IP",
           "features": "CIDR blocks, routing địa lý"
+        },
+        {
+          "name": "AWS Site-to-Site VPN",
+          "type": "Networking",
+          "purpose": "Tạo đường hầm IPsec bảo mật giữa VPC và mạng on-prem/chi nhánh",
+          "useCase": "Kết nối trung tâm dữ liệu hoặc văn phòng với AWS thông qua internet được mã hóa",
+          "features": "Hai tunnel HA, hỗ trợ BGP hoặc static route, tích hợp CloudWatch và CloudHub"
+        },
+        {
+          "name": "AWS Client VPN",
+          "type": "Networking",
+          "purpose": "VPN quản lý toàn phần cho người dùng truy cập vào VPC từ xa",
+          "useCase": "Nhân viên remote cần truy cập tài nguyên nội bộ một cách bảo mật",
+          "features": "Dựa trên OpenVPN, scale tự động, hỗ trợ xác thực IAM/AD/SAML, split-tunnel"
+        },
+        {
+          "name": "AWS VPN CloudHub",
+          "type": "Networking",
+          "purpose": "Mở rộng Site-to-Site VPN theo mô hình hub-and-spoke để kết nối nhiều chi nhánh",
+          "useCase": "Liên kết các văn phòng phân tán thông qua cùng một Virtual Private Gateway",
+          "features": "Tận dụng VGW, dùng BGP để route động, phù hợp môi trường multi-site"
+        },
+        {
+          "name": "AWS Elastic Load Balancing (ELB)",
+          "type": "Load Balancing",
+          "purpose": "Phân phối traffic tự động giữa nhiều target để đảm bảo HA",
+          "useCase": "Cân bằng tải cho ứng dụng web, microservices, TCP/UDP hoặc gói bảo mật",
+          "features": "ALB, NLB, GWLB, health checks, tích hợp Auto Scaling và WAF"
         }
       ]
     },
@@ -494,6 +543,13 @@
           "purpose": "Chống DDoS attacks",
           "useCase": "Bảo vệ L3/L4 DDoS, always-on protection",
           "features": "Shield Standard (free), Shield Advanced (paid), DDoS mitigation"
+        },
+        {
+          "name": "AWS CloudHSM",
+          "type": "Encryption",
+          "purpose": "Cung cấp phần cứng HSM chuyên dụng để quản lý khóa",
+          "useCase": "Ứng dụng yêu cầu FIPS 140-2 Level 3, tự quản lý khóa riêng",
+          "features": "Cluster HSM trong VPC, quyền kiểm soát root key, tích hợp KMS custom key store"
         }
       ]
     },
@@ -557,6 +613,34 @@
           "purpose": "Dịch vụ Apache Kafka được quản lý",
           "useCase": "Event streaming mạnh, pub/sub, event-driven architecture",
           "features": "Kafka managed, tự động scale, high availability, encryption"
+        },
+        {
+          "name": "Amazon Polly",
+          "type": "AI Service",
+          "purpose": "Chuyển đổi văn bản thành giọng nói tự nhiên đa ngôn ngữ",
+          "useCase": "Voice-over, chatbot nói, accessibility cho ứng dụng",
+          "features": "Neural TTS, SSML, lexicon tùy chỉnh, trả theo ký tự"
+        },
+        {
+          "name": "Amazon Lex",
+          "type": "AI Service",
+          "purpose": "Xây dựng chatbot và voice bot hội thoại với NLP",
+          "useCase": "Contact center tự động, trợ lý ảo, bot hỗ trợ khách hàng",
+          "features": "ASR + NLU, tích hợp Lambda, multi-turn conversation, connect channel"
+        },
+        {
+          "name": "Amazon Connect",
+          "type": "Contact Center",
+          "purpose": "Contact center cloud-native với AI tích hợp",
+          "useCase": "Triển khai tổng đài omni-channel với routing thông minh",
+          "features": "Voice + chat, tự động scale, tích hợp Lex/Polly/Kinesis, analytics real-time"
+        },
+        {
+          "name": "Amazon Customize",
+          "type": "AI Service",
+          "purpose": "Tùy biến trải nghiệm người dùng bằng mô hình đề xuất cá nhân hóa",
+          "useCase": "Đề xuất sản phẩm/dịch vụ dựa trên hành vi người dùng",
+          "features": "Dataset tùy chỉnh, inference real-time, tích hợp với Personalize"
         }
       ]
     },
@@ -648,6 +732,230 @@
           "purpose": "Dữ liệu billing chi tiết nhất (raw data)",
           "useCase": "Export cost raw → S3 → phân tích bằng Athena/Redshift",
           "features": "Detailed billing data, hourly/daily reports, export to S3"
+        },
+        {
+          "name": "AWS Fault Injection Simulator (FIS)",
+          "type": "Resilience Testing",
+          "purpose": "Thực hiện chaos engineering có kiểm soát trên hạ tầng AWS",
+          "useCase": "Kiểm chứng khả năng chịu lỗi, thử nghiệm kịch bản sự cố trước khi xảy ra thực tế",
+          "features": "Thư viện mẫu, target đa dịch vụ, rollback tự động, tích hợp CloudWatch Alarms"
+        },
+        {
+          "name": "AWS Health Dashboard",
+          "type": "Observability",
+          "purpose": "Cung cấp thông tin trạng thái dịch vụ AWS ảnh hưởng đến tài khoản",
+          "useCase": "Theo dõi sự cố khu vực, lập kế hoạch khắc phục dựa trên cảnh báo sức khỏe",
+          "features": "Personal Health Dashboard, thông báo pro-active, API truy cập tình trạng"
+        },
+        {
+          "name": "AWS X-Ray",
+          "type": "Observability",
+          "purpose": "Tracing end-to-end để phân tích hiệu năng ứng dụng phân tán",
+          "useCase": "Debug microservices, tối ưu latency API, tìm bottleneck",
+          "features": "Service map, trace sampling, annotation, tích hợp Lambda/ECS/EKS"
+        }
+      ]
+    },
+    {
+      "id": "identity",
+      "name": "Identity & Access",
+      "description": "Dịch vụ quản trị danh tính và truy cập",
+      "services": [
+        {
+          "name": "AWS Identity and Access Management (IAM)",
+          "type": "Identity",
+          "purpose": "Quản lý user, role và quyền truy cập đến tài nguyên AWS",
+          "useCase": "Thiết lập quyền tối thiểu, kiểm soát truy cập chi tiết ở cấp API",
+          "features": "Policy JSON, role, temporary credentials, MFA, access analyzer"
+        },
+        {
+          "name": "AWS IAM Identity Center",
+          "type": "Identity Federation",
+          "purpose": "Cung cấp SSO cho nhiều tài khoản AWS và ứng dụng cloud",
+          "useCase": "Trung tâm quản lý truy cập workforce, tích hợp Azure AD/Okta/SAML",
+          "features": "User portal, permission sets, automated account assignments, audit logs"
+        },
+        {
+          "name": "Amazon Cognito",
+          "type": "Identity",
+          "purpose": "Managed user pool và federation cho ứng dụng khách hàng",
+          "useCase": "Đăng nhập cho mobile/web app với MFA, social sign-in",
+          "features": "User Pools, Identity Pools, hosted UI, adaptive authentication"
+        }
+      ]
+    },
+    {
+      "id": "developer-tools",
+      "name": "Developer Tools & DevOps",
+      "description": "Các công cụ xây dựng và triển khai ứng dụng",
+      "services": [
+        {
+          "name": "AWS CodeBuild",
+          "type": "Developer Tooling",
+          "purpose": "Dịch vụ build CI/CD fully managed",
+          "useCase": "Build container/image, chạy unit test trong pipeline",
+          "features": "Trả theo phút build, buildspec.yml, tích hợp CodePipeline, môi trường tùy chỉnh"
+        },
+        {
+          "name": "AWS CodeDeploy",
+          "type": "Developer Tooling",
+          "purpose": "Triển khai tự động lên EC2, Lambda hoặc on-prem",
+          "useCase": "Blue/green deployment, rolling update, giảm downtime",
+          "features": "AppSpec.yml, lifecycle hooks, hỗ trợ EC2/Fargate/Lambda, rollback tự động"
+        },
+        {
+          "name": "AWS Cloud Development Kit (CDK)",
+          "type": "Infrastructure as Code",
+          "purpose": "Định nghĩa hạ tầng AWS bằng ngôn ngữ lập trình quen thuộc",
+          "useCase": "Tạo stack IaC reusable với construct, tích hợp CI/CD",
+          "features": "Hỗ trợ TS/Python/Java/C#, construct library, synth ra CloudFormation"
+        },
+        {
+          "name": "AWS Command Line Interface (CLI)",
+          "type": "Developer Tooling",
+          "purpose": "Công cụ CLI thống nhất để quản lý dịch vụ AWS",
+          "useCase": "Tự động hóa scripts, thao tác nhanh với tài nguyên từ terminal",
+          "features": "Hỗ trợ hầu hết dịch vụ, profile đa tài khoản, ký request SigV4"
+        },
+        {
+          "name": "Amazon CodeGuru",
+          "type": "Developer Tooling",
+          "purpose": "Phân tích code và profiling tự động bằng ML",
+          "useCase": "Tìm bug/best practice issue trong PR, tối ưu hiệu năng ứng dụng",
+          "features": "Reviewer cho PR, Profiler runtime, khuyến nghị chi tiết"
+        }
+      ]
+    },
+    {
+      "id": "enablement",
+      "name": "Tài nguyên & Enablement",
+      "description": "Tài liệu và công cụ học tập chính thức từ AWS",
+      "services": [
+        {
+          "name": "AWS Whitepapers",
+          "type": "Learning Resource",
+          "purpose": "Bộ tài liệu chuyên sâu về kiến trúc, bảo mật và best practices",
+          "useCase": "Nghiên cứu chuẩn bị thi chứng chỉ, lập kế hoạch kiến trúc",
+          "features": "PDF cập nhật thường xuyên, chia theo chủ đề, miễn phí"
+        },
+        {
+          "name": "AWS Partner Solutions (Quick Starts)",
+          "type": "Learning Resource",
+          "purpose": "Triển khai kiến trúc tham chiếu tự động cho workload phổ biến",
+          "useCase": "Khởi tạo giải pháp chuẩn ngành trong vài giờ thay vì vài tuần",
+          "features": "IaC mẫu, automation multi-AZ, hướng dẫn từng bước"
+        },
+        {
+          "name": "AWS Forums",
+          "type": "Learning Resource",
+          "purpose": "Cộng đồng hỏi đáp chính thức dành cho developer và kiến trúc sư",
+          "useCase": "Nhận hỗ trợ từ chuyên gia AWS và cộng đồng về vấn đề kỹ thuật",
+          "features": "Chủ đề theo dịch vụ, staff moderation, vote câu trả lời"
+        },
+        {
+          "name": "AWS Shared Responsibility Model",
+          "type": "Learning Resource",
+          "purpose": "Khung phân định trách nhiệm bảo mật giữa AWS và khách hàng",
+          "useCase": "Hiểu phần việc mình phải quản lý khi thiết kế hệ thống trên cloud",
+          "features": "Phân tầng dịch vụ IaaS/PaaS/SaaS, ví dụ thực tế, tài liệu compliance"
+        },
+        {
+          "name": "AWS Pricing Calculator",
+          "type": "Learning Resource",
+          "purpose": "Ước tính chi phí cho giải pháp AWS trước khi triển khai",
+          "useCase": "Lập ngân sách, so sánh các phương án kiến trúc, chứng minh chi phí",
+          "features": "Template workload, export CSV/PDF, chia sẻ liên kết, cập nhật giá realtime"
+        }
+      ]
+    },
+    {
+      "id": "support-plans",
+      "name": "AWS Support Plans",
+      "description": "Các gói hỗ trợ kỹ thuật từ AWS",
+      "services": [
+        {
+          "name": "AWS Basic Support",
+          "type": "Support Plan",
+          "purpose": "Gói support mặc định miễn phí với quyền truy cập tài liệu và forum",
+          "useCase": "Account cá nhân hoặc học tập cần hỗ trợ cơ bản",
+          "features": "24/7 customer service, tài liệu, Trusted Advisor limited, Health Dashboard"
+        },
+        {
+          "name": "AWS Developer Support",
+          "type": "Support Plan",
+          "purpose": "Hỗ trợ kỹ thuật trong giờ làm việc cho môi trường dev/test",
+          "useCase": "Nhóm dev cần guidance kiến trúc với thời gian phản hồi trong ngày",
+          "features": "Phản hồi <24h, kiến trúc hướng dẫn chung, giá từ $29/tháng"
+        },
+        {
+          "name": "AWS Business Support",
+          "type": "Support Plan",
+          "purpose": "Hỗ trợ 24/7 qua phone/chat cho workload production",
+          "useCase": "Doanh nghiệp chạy workload quan trọng cần phản hồi nhanh",
+          "features": "Phản hồi 1h cho production down, TAM-lite, Trusted Advisor full"
+        },
+        {
+          "name": "AWS Enterprise Support",
+          "type": "Support Plan",
+          "purpose": "Gói cao cấp với Technical Account Manager chuyên trách",
+          "useCase": "Tổ chức lớn cần hướng dẫn kiến trúc sâu và vận hành mission-critical",
+          "features": "TAM 24/7, tốc độ phản hồi 15 phút, Well-Architected review, concierge billing"
+        }
+      ]
+    },
+    {
+      "id": "osi-layers",
+      "name": "OSI Layers",
+      "description": "Mapping 7 tầng OSI với các dịch vụ AWS phù hợp",
+      "services": [
+        {
+          "name": "Layer 1 - Physical",
+          "type": "Learning Resource",
+          "purpose": "Kết nối vật lý và hạ tầng mạng nền tảng",
+          "useCase": "Khi cần đường truyền chuyên dụng hoặc thiết bị vật lý để kéo AWS về on-prem",
+          "features": "AWS Direct Connect (leased line 1/10/100Gbps), Outposts rack, Local Zones, thiết bị Snow/Router của ISP"
+        },
+        {
+          "name": "Layer 2 - Data Link",
+          "type": "Learning Resource",
+          "purpose": "Quản lý VLAN/Link và đảm bảo truyền frame tin cậy trên đường vật lý",
+          "useCase": "Tách traffic qua VLAN trên Direct Connect, dùng MACSec, link aggregation cho HA",
+          "features": "Direct Connect VLAN, Link Aggregation Groups (LAG), MACSec encryption, Transit Gateway attachments ở chế độ Layer 2"
+        },
+        {
+          "name": "Layer 3 - Network",
+          "type": "Learning Resource",
+          "purpose": "Định tuyến IP, phân đoạn mạng và kết nối VPC/hybrid",
+          "useCase": "Thiết kế CIDR, route table, kết nối nhiều VPC hoặc mạng toàn cầu",
+          "features": "Amazon VPC, Route Tables, AWS Transit Gateway, AWS Cloud WAN, Network Firewall"
+        },
+        {
+          "name": "Layer 4 - Transport",
+          "type": "Learning Resource",
+          "purpose": "Kiểm soát TCP/UDP, cân bằng lưu lượng và tối ưu độ trễ",
+          "useCase": "Cân bằng tải TCP/UDP ở mức connection, tối ưu đường đi toàn cầu",
+          "features": "Network Load Balancer (TCP/UDP/TLS), AWS Global Accelerator, QUIC/UDP qua CloudFront"
+        },
+        {
+          "name": "Layer 5 - Session",
+          "type": "Learning Resource",
+          "purpose": "Thiết lập, duy trì, ngắt phiên kết nối bảo mật",
+          "useCase": "Quản lý VPN, truy cập từ xa và session stickiness giữa client ↔ ứng dụng",
+          "features": "AWS Client VPN, AWS Site-to-Site VPN, Session stickiness của ALB/NLB, AWS App Mesh mTLS"
+        },
+        {
+          "name": "Layer 6 - Presentation",
+          "type": "Learning Resource",
+          "purpose": "Chuyển đổi/định dạng dữ liệu, mã hóa/giải mã trước khi đến ứng dụng",
+          "useCase": "Thực hiện TLS termination, chuyển đổi payload, nén/gia tăng bảo mật dữ liệu",
+          "features": "Application Load Balancer (TLS termination), AWS Certificate Manager, AWS API Gateway mapping templates, Lambda@Edge transform"
+        },
+        {
+          "name": "Layer 7 - Application",
+          "type": "Learning Resource",
+          "purpose": "Xử lý logic ứng dụng, phân phối nội dung và bảo vệ tầng ứng dụng",
+          "useCase": "Phân phối HTTP/HTTPS, edge caching, bảo vệ API/web và quan sát request",
+          "features": "Amazon CloudFront, AWS WAF, API Gateway, Application Load Balancer, AWS AppSync/Lambda"
         }
       ]
     }
