@@ -134,13 +134,14 @@ const typeGroups = {
   'type-storage': ['Object Storage', 'Block Storage', 'File Storage', 'Archive Storage', 'Hybrid Storage', 'Data Transfer', 'File Transfer', 'Data Migration', 'Edge Computing'],
   'type-networking': ['DNS', 'Networking', 'Load Balancing', 'Streaming Data Platform', 'Managed Apache Kafka'],
   'type-container': ['Container Orchestration', 'Serverless Container'],
-  'type-database': ['Relational Database', 'NoSQL Database', 'Document Database', 'Graph Database', 'Wide-Column Database', 'Ledger Database', 'Data Warehouse', 'In-Memory Cache', 'Business Intelligence', 'ETL Service', 'Query Service', 'Data Lake Management', 'Big Data Processing', 'Connection Proxy'],
+  'type-database': ['Relational Database', 'NoSQL Database', 'Document Database', 'Graph Database', 'Wide-Column Database', 'Ledger Database', 'Data Warehouse', 'In-Memory Cache', 'Business Intelligence', 'ETL Service', 'Query Service', 'Data Lake Management', 'Big Data Processing', 'Connection Proxy', 'Search & Analytics'],
   'type-batch': ['Batch Processing'],
   'type-security': ['Encryption', 'Secrets Management', 'Threat Detection', 'Security Assessment', 'Security Management', 'Compliance', 'Data Security', 'DDoS Protection', 'Web Security', 'Identity', 'Identity Federation'],
   'type-framework': ['Framework'],
   'type-devtools': ['Developer Tooling', 'Infrastructure as Code'],
-  'type-ml': ['Machine Learning', 'AI Service', 'Computer Vision', 'Natural Language Processing', 'Contact Center'],
-  'type-support': ['Learning Resource', 'Support Plan', 'Management', 'Service Management', 'Operations Management', 'Monitoring & Observability', 'Observability', 'Audit & Logging', 'Configuration Management', 'Account Management', 'Multi-Account Governance', 'Cost Management', 'Cost Analytics', 'Cost Reporting', 'Resilience Testing']
+  'type-ml': ['Machine Learning', 'AI Service', 'Computer Vision', 'Natural Language Processing', 'Contact Center', 'Marketing & Communication'],
+  'type-support': ['Learning Resource', 'Support Plan', 'Management', 'Service Management', 'Operations Management', 'Monitoring & Observability', 'Observability', 'Audit & Logging', 'Configuration Management', 'Account Management', 'Multi-Account Governance', 'Cost Management', 'Cost Analytics', 'Cost Reporting', 'Resilience Testing'],
+  'type-compute': ['Media Processing']
 }
 
 const getTypeClass = (type) => {
@@ -340,6 +341,10 @@ const getTypeClass = (type) => {
 .type-support {
   background-color: #ede7f6;
   color: #5e35b1;
+}
+.type-compute {
+  background-color: #fff9c4;
+  color: #f57f17;
 }
 
 .type-default {

@@ -32,6 +32,13 @@
           "purpose": "Khung đánh giá và cải thiện kiến trúc cloud",
           "useCase": "Đảm bảo kiến trúc tuân thủ best practices",
           "features": "5 trụ cột: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization"
+        },
+        {
+          "name": "AWS Cloud Adoption Framework (CAF)",
+          "type": "Framework",
+          "purpose": "Khung hướng dẫn chuyển đổi và tối ưu hóa tổ chức lên cloud",
+          "useCase": "Lập kế hoạch cloud migration, đánh giá năng lực tổ chức, xây dựng roadmap chuyển đổi",
+          "features": "6 góc nhìn: Business, People, Governance, Platform, Security, Operations; best practices và guidance"
         }
       ]
     },
@@ -228,6 +235,13 @@
           "purpose": "Cung cấp VPS, database và container package đơn giản",
           "useCase": "Chạy website nhỏ, blog, ứng dụng thử nghiệm với chi phí cố định",
           "features": "Blueprints phổ biến, pricing đơn giản, tích hợp DNS và snapshots"
+        },
+        {
+          "name": "Amazon Elastic Transcoder",
+          "type": "Media Processing",
+          "purpose": "Dịch vụ xử lý video/audio được quản lý để chuyển đổi format và tối ưu hóa",
+          "useCase": "Transcode video cho nhiều thiết bị, tạo thumbnail, watermark, adaptive bitrate streaming",
+          "features": "Hỗ trợ nhiều format (MP4, HLS, DASH), preset tùy chỉnh, tích hợp S3, trả theo phút xử lý"
         }
       ]
     },
@@ -382,6 +396,13 @@
           "purpose": "Quản lý và bảo mật data lakes",
           "useCase": "Quản trị dữ liệu tập trung, thiết lập data lake",
           "features": "Thiết lập tự động, kiểm soát truy cập chi tiết, catalog dữ liệu"
+        },
+        {
+          "name": "Amazon OpenSearch Service",
+          "type": "Search & Analytics",
+          "purpose": "Dịch vụ search và analytics được quản lý (tương thích Elasticsearch)",
+          "useCase": "Tìm kiếm full-text, log analytics, real-time monitoring, business intelligence",
+          "features": "Tương thích Elasticsearch/Kibana, tự động scale, tích hợp VPC, encryption, fine-grained access control"
         }
       ]
     },
@@ -473,6 +494,13 @@
           "purpose": "Phân phối traffic tự động giữa nhiều target để đảm bảo HA",
           "useCase": "Cân bằng tải cho ứng dụng web, microservices, TCP/UDP hoặc gói bảo mật",
           "features": "ALB, NLB, GWLB, health checks, tích hợp Auto Scaling và WAF"
+        },
+        {
+          "name": "AWS Global Accelerator",
+          "type": "Networking",
+          "purpose": "Tối ưu hóa đường đi và độ trễ toàn cầu bằng cách route traffic qua AWS edge network",
+          "useCase": "Cải thiện hiệu suất ứng dụng toàn cầu, giảm độ trễ, tăng tính sẵn sàng với static IP",
+          "features": "Static IP anycast, automatic failover, health checks, tích hợp ALB/NLB/EC2/Elastic IP"
         }
       ]
     },
@@ -641,6 +669,20 @@
           "purpose": "Tùy biến trải nghiệm người dùng bằng mô hình đề xuất cá nhân hóa",
           "useCase": "Đề xuất sản phẩm/dịch vụ dựa trên hành vi người dùng",
           "features": "Dataset tùy chỉnh, inference real-time, tích hợp với Personalize"
+        },
+        {
+          "name": "Amazon Transcribe",
+          "type": "AI Service",
+          "purpose": "Chuyển đổi giọng nói thành văn bản tự động (speech-to-text)",
+          "useCase": "Transcribe cuộc gọi, video, podcast, meeting notes, closed captioning",
+          "features": "Hỗ trợ nhiều ngôn ngữ, speaker identification, custom vocabulary, real-time và batch transcription"
+        },
+        {
+          "name": "Amazon Pinpoint",
+          "type": "Marketing & Communication",
+          "purpose": "Nền tảng marketing và giao tiếp đa kênh để tương tác với khách hàng",
+          "useCase": "Gửi email/SMS/push notification, phân tích hành vi người dùng, A/B testing campaigns",
+          "features": "Multi-channel messaging, audience segmentation, analytics, journey orchestration, templates"
         }
       ]
     },
@@ -753,6 +795,13 @@
           "purpose": "Tracing end-to-end để phân tích hiệu năng ứng dụng phân tán",
           "useCase": "Debug microservices, tối ưu latency API, tìm bottleneck",
           "features": "Service map, trace sampling, annotation, tích hợp Lambda/ECS/EKS"
+        },
+        {
+          "name": "AWS Compute Optimizer",
+          "type": "Cost Management",
+          "purpose": "Phân tích và đề xuất tối ưu hóa tài nguyên compute (EC2, Lambda, EBS)",
+          "useCase": "Giảm chi phí bằng cách đề xuất instance type phù hợp, tối ưu Lambda memory, EBS volume",
+          "features": "ML-based recommendations, phân tích sử dụng thực tế, export reports, tích hợp Cost Explorer"
         }
       ]
     },
@@ -823,6 +872,13 @@
           "purpose": "Phân tích code và profiling tự động bằng ML",
           "useCase": "Tìm bug/best practice issue trong PR, tối ưu hiệu năng ứng dụng",
           "features": "Reviewer cho PR, Profiler runtime, khuyến nghị chi tiết"
+        },
+        {
+          "name": "AWS Amplify",
+          "type": "Developer Tooling",
+          "purpose": "Nền tảng phát triển full-stack cho web và mobile app với backend managed",
+          "useCase": "Xây dựng ứng dụng React/Vue/Angular/React Native với authentication, API, hosting tự động",
+          "features": "CLI, hosting, authentication (Cognito), GraphQL/REST API, storage, CI/CD, tích hợp Git"
         }
       ]
     },
